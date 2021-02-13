@@ -2,6 +2,12 @@ const searchBTN = document.getElementById('search-btn');
 const songDisplay = document.getElementById('songDisplay');
 const songLyrics = document.getElementById('songLyrics');
 const errorTag = document.getElementById('error-msg');
+const searchSong = document.getElementById('search-song');
+searchSong.addEventListener('keypress',event=>{
+    if(event.key=='Enter'){
+        searchBTN.click();
+    }
+});
 searchBTN.addEventListener('click', getSongName);
 
 async function getSongName() {
