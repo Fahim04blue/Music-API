@@ -11,10 +11,7 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <!-- Custom css -->
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -67,7 +64,7 @@
 
       <main class="content-area">
         <div class="search-bar col-md-6 mx-auto">
-          <h1 class="text-center">Search Your Favorite Songs </h1>
+          <h1 class="text-center">Search Your Favorite Songs</h1>
           <div class="search-box my-5">
             <input
               id="search-song"
@@ -80,14 +77,16 @@
             </button>
           </div>
         </div>
+        <!-- loading spinner -->
+        <div id="spinner" class="d-flex justify-content-center d-none">
+          <div class="spinner-border text-danger" role="status">
+            <span class="visually-hidden"></span>
+          </div>
+        </div>
         <!-- Single Lyrics -->
         <h3 id="error-msg" class="text-danger text-center"></h3>
-        <div id ="songLyrics" class="single-lyrics text-center">
-
-        </div>
-        <div id = "songDisplay">
-          
-        </div>
+        <div id="songLyrics" class="single-lyrics text-center"></div>
+        <div id="songDisplay" ></div>
       </main>
     </div>
     <!-- Optional JavaScript -->

@@ -7,13 +7,14 @@ searchBTN.addEventListener('click', getSongName);
 async function getSongName() {
     const searchSong = document.getElementById('search-song').value;
     const searchURL = `https://api.lyrics.ovh/suggest/${searchSong}`;
+    toggle();
     try {
         const response = await fetch(searchURL);
         const data = await response.json();
         displaySong(data.data) 
     } catch (error) {
         songDisplay.innerHTML='';
-        displayError("Sorry! This Song is Not Available at this moment")
+        displayError("Sorry! This Song is Not Available at this moment");
     }
     //console.log(searchURL)
     
@@ -48,27 +49,37 @@ const displaySong = songs => {
     });
     songLyrics.innerHTML = '';
     songDisplay.innerHTML = markup;
+    toggle();
 }
 
 async function getLyrics(artist, title) {
     const lyricsURL = `https://api.lyrics.ovh/v1/${artist}/${title}`
+    toggle();
     try {
         const response = await fetch(lyricsURL)
         const data = await response.json();
         displayLyrics(data.lyrics);
+        console.log(data.lyrics);
     } catch (error) {
         displayError("Oppss!Lyrics Not Available");
     }
 
 }
 
-const displayLyrics = lyrics => {
+function displayLyrics(lyrics ) {
     errorTag.innerHTML='';
     songLyrics.innerText = lyrics;
+    toggle();
 
 }
 
 const displayError = error => {
    
     errorTag.innerText = error;
+}
+
+const toggle=()=>{
+    const spinner = document.getElementById('spinner');
+    spinner.classList.toggle('d-none');
+    songDisplay.classList.toggle('d-none');
 }
